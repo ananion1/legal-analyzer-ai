@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Legal Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>⚖️ Legal Document Analyzer</h1>
+<a href=" "/static/legal-extension.zip" download>
+    <button> Download Chrome Extension</button>
+</a>
+<textarea id="inputText" placeholder="Paste terms & conditions here..."></textarea>
+
+<br>
+
+<button onclick="analyze()">Analyze</button>
+
+<h2>Result:</h2>
+<div id="output" class="output-box"></div>
+
+<script>
+async function analyze() {
+    let text = document.getElementById("inputText").value;
+    let output = document.getElementById("output");
+
+    // 🔄 Loading state
+    output.innerHTML = "Analyzing... ⏳";
+
+    try {
+        let res = await fetch("/analyze", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({text})
+        });
+
+        let data = await res.json();
+
+        // 🎯 Format output nicely
+        let formatted = data.result
+            .replaceAll("(High)", "🔴 <span class='high'>High Risk:</span>")
+            .replaceAll("(Medium)", "🟡 <span class='medium'>Medium Risk:</span>")
+            .replaceAll("(Low)", "🟢 <span class='low'>Low Risk:</span>");
+
+        // Convert line breaks to HTML
+        formatted = formatted.replace(/\n/g, "<br>");
+
+        output.innerHTML = formatted;
+
+    } catch (error) {
+        output.innerHTML = "❌ Error analyzing. Try again.";
+    }
+}
+</script>
+
+</body>
+</html>

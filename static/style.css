@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    background: #1e3a8a;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+/* Output box */
+.output-box {
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Risk colors */
+.high {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.medium {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.low {
+    color: #16a34a;
+    font-weight: bold;
+}
