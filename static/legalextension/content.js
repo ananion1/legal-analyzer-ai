@@ -1,4 +1,4 @@
-// Step 1: Detect possible legal text
+
 function findTerms() {
   const text = document.body.innerText.toLowerCase();
 
@@ -12,7 +12,6 @@ function findTerms() {
   return null;
 }
 
-// Step 2: Create floating UI box
 function createBox(content) {
   // Prevent duplicate box
   if (document.getElementById("legal-box")) return;
@@ -28,7 +27,6 @@ function createBox(content) {
   document.body.appendChild(box);
 }
 
-// Step 3: Run logic
 const termsText = findTerms();
 
 if (termsText) {
